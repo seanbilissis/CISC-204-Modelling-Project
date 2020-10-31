@@ -3,9 +3,7 @@ from nnf import Var
 
 from lib204 import Encoding 
 
-  
-
-# Call your variables whatever you want 
+# Variables 
 
 t1 = Var('t1') #Olivia 
 
@@ -101,13 +99,11 @@ def example_theory():
 
     E.add_constraint(t19 >> (t22)) 
 
-    E.add_constraint(t18 >> (~t13 & ~t5) & t7)) 
+    E.add_constraint(t18 >> (~t13 & ~t5) & t7) 
 
     E.add_constraint(t3 >> (~t21 & (t16 & t22))) 
 
- 
-
-    return E
+    return E 
 
 
 if __name__ == "__main__":
@@ -118,7 +114,7 @@ if __name__ == "__main__":
     print("# Solutions: %d" % T.count_solutions())
     print("   Solution: %s" % T.solve())
 
-    print("\nVariable likelihoods:")
-    for v,vn in zip([a,b,c,x,y,z], 'abcxyz'):
-        print(" %s: %.2f" % (vn, T.likelihood(v)))
-    print()
+    #print("\nVariable likelihoods:")
+    #for v,vn in zip([a,b,c,x,y,z], 'abcxyz'):
+        #print(" %s: %.2f" % (vn, T.likelihood(v)))
+    #print()
