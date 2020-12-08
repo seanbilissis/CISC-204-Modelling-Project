@@ -1,9 +1,18 @@
-
-from nnf import Var 
-
+from nnf import Var
+from nnf import NNF
+from nnf.operators import iff
 from lib204 import Encoding 
 
-# Variables 
+def implication(l, r):
+    return l.negate() | r
+
+def neg(f):
+    return f.negate()
+
+NNF.__rshift__ = implication
+NNF.__invert__ = neg
+
+# Call your variables whatever you want 
 
 t1 = Var('t1') #Olivia 
 
@@ -65,45 +74,47 @@ def example_theory():
 
     E = Encoding() 
 
-    E.add_constraint(t1 >> (~t2 & ~t3)) 
+    E.add_constraint(iff(t1 , (~t2 & ~t3)))
 
-    E.add_constraint(t4 >> (~t4 & t5)) 
+    E.add_constraint(iff(t4 , (~t4 & t5)))
 
-    E.add_constraint(t1 >> (t6)) 
+    E.add_constraint(iff(t1 , (t6)))
 
-    E.add_constraint(t7 >> (~t8 | ~t9)) 
+    E.add_constraint(iff(t7 , (~t8 | ~t9)))
 
-    E.add_constraint(t10 >> (~t11)) 
+    E.add_constraint(iff(t10 , (~t11)))
 
-    E.add_constraint(t12 >> ((~t7 | t1) & ~(~t7 & t1)))   
+    E.add_constraint(iff(t12 , ((~t7 | t1) & ~(~t7 & t1))))
 
-    E.add_constraint(t13 >> (t14 | t15)) 
+    E.add_constraint(iff(t13 , (t14 | t15)))
 
-    E.add_constraint(t16 >> (~t7)) 
+    E.add_constraint(iff(t16 , (~t7)))
 
-    E.add_constraint(t7 >> (t13)) 
+    E.add_constraint(iff(t7 , (t13)))
 
-    E.add_constraint(t10 >> (t17 >> (~t16 & t4))) 
+    E.add_constraint(iff(t10 , (iff(t17 , (~t16 & t4)))))
 
-    E.add_constraint(t9 >> (~t18 | ~t19)) 
+    E.add_constraint(iff(t9 , (~t18 | ~t19)))
 
-    E.add_constraint(t20 >> (t14 & t21)) 
+    E.add_constraint(iff(t20 , (t14 & t21)))
 
-    E.add_constraint(t5 >> (t10 | t22)) 
+    E.add_constraint(iff(t5 , (t10 | t22)))
 
-    E.add_constraint(t11 >> (t15 >> (~t9 | t14))) 
+    E.add_constraint(iff(t11 , (iff(t15 , (~t9 | t14)))))
 
-    E.add_constraint(t12 >> (t10)) 
+    E.add_constraint(iff(t12 , (t10)))
 
-    E.add_constraint(t10 >> (~t21 & t4)) 
+    E.add_constraint(iff(t10 , (~t21 & t4)))
 
-    E.add_constraint(t19 >> (t22)) 
+    E.add_constraint(iff(t19 , (t22)))
 
-    E.add_constraint(t18 >> (~t13 & ~t5) & t7) 
+    E.add_constraint(iff(t18 , (~t13 & ~t5) & t7))
 
-    E.add_constraint(t3 >> (~t21 & (t16 & t22))) 
+    E.add_constraint(iff(t3 , (~t21 & (t16 & t22))))
 
-    return E 
+ 
+
+    return E
 
 
 if __name__ == "__main__":
@@ -114,7 +125,7 @@ if __name__ == "__main__":
     print("# Solutions: %d" % T.count_solutions())
     print("   Solution: %s" % T.solve())
 
-    #print("\nVariable likelihoods:")
-    #for v,vn in zip([a,b,c,x,y,z], 'abcxyz'):
-        #print(" %s: %.2f" % (vn, T.likelihood(v)))
-    #print()
+    print("\nVariable likelihoods:")
+    for v,vn in zip([t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14,t15,t16,t17,t18,t19,t20,t21,t22], 't1t2t3t4t5t6t7t8t9t10t11t12t13t14t15t16t17t18t19t20t21t22'):
+        print(" %s: %.2f" % (vn, T.likelihood(v)))
+    print()
