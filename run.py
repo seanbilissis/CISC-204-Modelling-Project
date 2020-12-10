@@ -1,8 +1,10 @@
+# Import Libraries
 from nnf import Var
 from nnf import NNF
 from nnf.operators import iff
-from lib204 import Encoding 
+from lib204 import Encoding
 
+# Define functions for 'missing' operators
 def implication(l, r):
     return l.negate() | r
 
@@ -12,120 +14,99 @@ def neg(f):
 NNF.__rshift__ = implication
 NNF.__invert__ = neg
 
-# Call your variables whatever you want 
 
-t1 = Var('t1') #Olivia 
+# Define a variable for each person in the problem
+Olivia= Var('t1') #Olivia
+Ulric= Var('t2') #Ulric
+Alice= Var('t3') #Alice
+Yates= Var('t4') #Yates
+Bob= Var('t5') #Bob
+Zara= Var('t6') #Zara
+Sam= Var('t7') #Sam
+Jeff= Var('t8') #Jeff
+Quentin= Var('t9') #Quentin
+Valerie= Var('t10') #Valerie
+Rosalina= Var('t11') #Rosalina
+Wallace= Var('t12') #Wallace
+Nate= Var('t13') #Nate
+Harry= Var('t14') #Harry
+Karen= Var('t15') #Karen
+Eva= Var('t16') #Eva
+Gale= Var('t17') #Gale
+Chloe= Var('t18') #Chloe
+Larry= Var('t19') #Larry
+Farrel= Var('t20') #Farrel
+Michelle= Var('t21') #Michelle
+Perry= Var('t22') #Perry
 
-t2 = Var('t2') #Ulric 
+#List of people
+people = [Olivia,Ulric,Alice,Yates,Bob,Zara,Sam,Jeff,Quentin,Valerie,Rosalina,Wallace,Nate,Harry,Karen,Eva,Gale,Chloe,Larry,Farrel,Michelle,Perry]
 
-t3= Var('t3') #Alice 
-
-t4= Var('t4') #Yates 
-
-t5= Var('t5') #Bob 
-
-t6= Var('t6') #Zara 
-
-t7= Var('t7') #Sam 
-
-t8= Var('t8') #Jeff 
-
-t9= Var('t9') #Quentin 
-
-t10= Var('t10') #Valerie 
-
-t11= Var('t11') #Roslina 
-
-t12= Var('t12') #Wallace 
-
-t13= Var('t13') #Nate 
-
-t14= Var('t14') #Harry 
-
-t15= Var('t15') #Karen 
-
-t16= Var('t16') #Eva 
-
-t17= Var('t17') #Gale 
-
-t18= Var('t18') #Chloe 
-
-t19= Var('t19') #Larry 
-
-t20= Var('t20') #Farrel 
-
-t21= Var('t21') #Michelle 
-
-t22= Var('t22') #Perry 
-
-  
-
-  
-
-# Build an example full theory for your setting and return it. 
-
-#  There should be at least 10 variables, and a sufficiently large formula to describe it (>50 operators). 
-
-#  This restriction is fairly minimal, and if there is any concern, reach out to the teaching staff to clarify 
-
-#  what the expectations are. 
-
-def example_theory(): 
-
-    E = Encoding() 
-
-    E.add_constraint(iff(t1 , (~t2 & ~t3)))
-
-    E.add_constraint(iff(t4 , (~t4 & t5)))
-
-    E.add_constraint(iff(t1 , (t6)))
-
-    E.add_constraint(iff(t7 , (~t8 | ~t9)))
-
-    E.add_constraint(iff(t10 , (~t11)))
-
-    E.add_constraint(iff(t12 , ((~t7 | t1) & ~(~t7 & t1))))
-
-    E.add_constraint(iff(t13 , (t14 | t15)))
-
-    E.add_constraint(iff(t16 , (~t7)))
-
-    E.add_constraint(iff(t7 , (t13)))
-
-    E.add_constraint(iff(t10 , (iff(t17 , (~t16 & t4)))))
-
-    E.add_constraint(iff(t9 , (~t18 | ~t19)))
-
-    E.add_constraint(iff(t20 , (t14 & t21)))
-
-    E.add_constraint(iff(t5 , (t10 | t22)))
-
-    E.add_constraint(iff(t11 , (iff(t15 , (~t9 | t14)))))
-
-    E.add_constraint(iff(t12 , (t10)))
-
-    E.add_constraint(iff(t10 , (~t21 & t4)))
-
-    E.add_constraint(iff(t19 , (t22)))
-
-    E.add_constraint(iff(t18 , (~t13 & ~t5) & t7))
-
-    E.add_constraint(iff(t3 , (~t21 & (t16 & t22))))
-
- 
-
+#create model
+def knight_knaves():
+    E = Encoding()
+    # Statement 1: Olivia says "Ulric and Alice lie"
+    E.add_constraint(iff(Olivia , (~Ulric & ~Alice)))
+    # Statement 2: Yates says "Yayes lies, and also Bob is truthful"
+    E.add_constraint(iff(Yates , (~Yates & Bob)))
+    # Statement 3: Olivia says "Zara is truthful"
+    E.add_constraint(iff(Olivia , (Zara)))
+    # Statement 4: Sam says "At least on of Jess or Quentin lies"
+    E.add_constraint(iff(Sam , (~Jeff | ~Quentin)))
+    # Statement 5: Valerie says "Roslina lies"
+    E.add_constraint(iff(Valerie , (~Rosalina)))
+    # Statement 6: Wallace says "Either Sam lies, or Olivia is truthful"
+    E.add_constraint(iff(Wallace , ((~Sam | Olivia) & neg((~Sam & Olivia)))))
+    # Statement 7: Nate says "At east one of Harry or Karen is truthful"
+    E.add_constraint(iff(Nate , (Harry | Karen)))
+    # Statement 8: Eva says "Sam lies"
+    E.add_constraint(iff(Eva , (~Sam)))
+    # Statement 9: Sam says "Nate is truthful"
+    E.add_constraint(iff(Sam , (Nate)))
+    # Statement 10: Valerie says "Gale would say 'Eva lies, and also Yates is truthful'"
+    E.add_constraint(iff(Valerie , (iff(Gale , (~Eva & Yates)))))
+    # Statement 11: Quentin says "At least one of Chloe or Larry lies"
+    E.add_constraint(iff(Quentin , (~Chloe | ~Larry)))
+    # Statement 12: Farrel says "Harry and Michelle are truthful"
+    E.add_constraint(iff(Farrel , (Harry & Michelle)))
+    # Statement 13: Bob says "At least one of Valerie or Perry is truthful"
+    E.add_constraint(iff(Bob , (Valerie | Perry)))
+    ## Statement 14: Rosalina says "Karen would say 'Either Quentin lies, or Harry is truthful'"
+    E.add_constraint(iff(Rosalina , (iff(Karen , (~Quentin | Harry) & neg((~Quentin & Harry))))))
+    # Statement 15: Wallace says "Valerie is truthful"
+    E.add_constraint(iff(Wallace , (Valerie)))
+    # Statement 16: Valerie says "Either Michelle lies, or Yates is truthful"
+    E.add_constraint(iff(Valerie , (~Michelle | Yates) & neg((~Michelle & Yates))))
+    # Statement 17: Larry says "Perry is truthful"
+    E.add_constraint(iff(Larry , (Perry)))
+        ### Explore: What happens if Larry instead says that "Perry lies"?
+        ### E.add_constraint(iff(Larry , (~Perry)))
+    # Statement 18: Chloe says "Nate and Bob lie, and also Sam is truthful"
+    E.add_constraint(iff(Chloe , (~Nate & ~Bob) & Sam))
+    # Statement 19: Alice says "Michelle lies, and also Eva and Perry are truthful"
+    E.add_constraint(iff(Alice , (~Michelle & (Eva & Perry))))
+        ### Explore: Quentin says "Olivia is truthful, and also Ulric lies"?
+    E.add_constraint(iff(Quentin, (Olivia & ~Ulric)))
     return E
-
 
 if __name__ == "__main__":
 
-    T = example_theory()
+    T = knight_knaves()
 
     print("\nSatisfiable: %s" % T.is_satisfiable())
     print("# Solutions: %d" % T.count_solutions())
-    print("   Solution: %s" % T.solve())
+    print("    Solution: %s" % T.solve())
+    # Sol = T.solve()
+    # Knights=[]
+    # Knaves=[]
+    # for i in Sol:
+    #     if Sol[i]==True:
+    #         Knights.append(i)
+    #     else:
+    #         Knaves.append(i)
+    # print("Solution:\n     Knights: %s \n     Knaves: %s" %(sorted(Knights), sorted(Knaves)))
 
     print("\nVariable likelihoods:")
-    for v,vn in zip([t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14,t15,t16,t17,t18,t19,t20,t21,t22], 't1t2t3t4t5t6t7t8t9t10t11t12t13t14t15t16t17t18t19t20t21t22'):
+    for v,vn in zip(people, ['t1','t2','t3','t4','t5','t6','t7','t8','t9','t10','t11','t12','t13','t14','t15','t16','t17','t18','t19','t20','t21','t22']):
         print(" %s: %.2f" % (vn, T.likelihood(v)))
     print()
