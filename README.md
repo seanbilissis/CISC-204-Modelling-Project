@@ -7,4 +7,6 @@ This project models a puzzle which takes place on an island inhabited by two g
 ## Structure
 
 * `documents`: Contains folders for draft and final submissions.
-* `run.py`: General wrapper script that you can choose to use or not.
+* `modelling_report.docx`: Contains part D5 of deliverables as outlined in the project description
+* `ProjectProofs.jp`: Jape proofs for part D3 of deliverables
+* `run.py`: Code used for model and exploration
