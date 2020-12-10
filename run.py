@@ -39,10 +39,11 @@ Farrel= Var('t20') #Farrel
 Michelle= Var('t21') #Michelle
 Perry= Var('t22') #Perry
 
-#List of people
-people = [Olivia,Ulric,Alice,Yates,Bob,Zara,Sam,Jeff,Quentin,Valerie,Rosalina,Wallace,Nate,Harry,Karen,Eva,Gale,Chloe,Larry,Farrel,Michelle,Perry]
+# List of people in the problem
+people = [Olivia,Ulric,Alice,Yates,Bob,Zara,Sam,Jeff,Quentin,Valerie,Rosalina,Wallace,Nate,Harry,
+    Karen,Eva,Gale,Chloe,Larry,Farrel,Michelle,Perry]
 
-#create model
+# Create model
 def knight_knaves():
     E = Encoding()
     # Statement 1: Olivia says "Ulric and Alice lie"
@@ -86,8 +87,11 @@ def knight_knaves():
     # Statement 19: Alice says "Michelle lies, and also Eva and Perry are truthful"
     E.add_constraint(iff(Alice , (~Michelle & (Eva & Perry))))
         ### Explore: Quentin says "Olivia is truthful, and also Ulric lies"?
+        ### (solves the issue of multiple solution)
     E.add_constraint(iff(Quentin, (Olivia & ~Ulric)))
     return E
+
+
 
 if __name__ == "__main__":
 
@@ -96,6 +100,8 @@ if __name__ == "__main__":
     print("\nSatisfiable: %s" % T.is_satisfiable())
     print("# Solutions: %d" % T.count_solutions())
     print("    Solution: %s" % T.solve())
+
+    ### A more readable way to display results for model exploration purposes
     # Sol = T.solve()
     # Knights=[]
     # Knaves=[]
