@@ -1,0 +1,154 @@
+﻿CONJECTUREPANEL Conjectures
+PROOF "(A→¬B)∧(¬B→A), (B→(A∧B))∧((A∧B)→B) ⊢ A∧¬B"
+INFER (A→¬B)∧(¬B→A),
+     (B→(A∧B))∧((A∧B)→B)
+     ⊢ A∧¬B 
+FORMULAE
+0 ¬B,
+1 A,
+2 ⊥,
+3 B,
+4 A→¬B,
+5 A∧B,
+6 B→A∧B,
+7 ¬¬B,
+8 A∧¬B,
+9 ¬A,
+10 ¬B→A,
+11 (A→¬B)∧(¬B→A),
+12 (B→(A∧B))∧((A∧B)→B),
+13 B→(A∧B),
+14 (A∧B)→B 
+IS
+SEQ (cut[B,C\13,8]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\13,14]) (hyp[A\12])) (cut[B,C\10,8]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\4,10]) (hyp[A\11])) (cut[B,C\4,8]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\4,10]) (hyp[A\11])) (cut[B,C\1,8]) ("contra (classical)"[A\1]) (cut[B,C\7,2]) ("→ MT"[A,B\0,1]) (hyp[A\10]) (hyp[A\9]) (cut[B,C\3,2]) (LAYOUT "¬¬ elim" (0) ("¬¬ elim"[B\3]) (hyp[A\7])) (cut[B,C\5,2]) ("→ elim"[A,B\3,5]) (hyp[A\6]) (hyp[A\3]) (cut[B,C\1,2]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\1,3]) (hyp[A\5])) (cut[B,C\2,2]) ("¬ elim"[B\1]) (hyp[A\1]) (hyp[A\9]) (hyp[A\2]) (cut[B,C\0,8]) ("contra (classical)"[A\0]) (cut[B,C\3,2]) (LAYOUT "¬¬ elim" (0) ("¬¬ elim"[B\3]) (hyp[A\7])) (cut[B,C\5,2]) ("→ elim"[A,B\3,5]) (hyp[A\6]) (hyp[A\3]) (cut[B,C\1,2]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\1,3]) (hyp[A\5])) (cut[B,C\0,2]) ("→ elim"[A,B\1,0]) (hyp[A\4]) (hyp[A\1]) (cut[B,C\2,2]) ("¬ elim"[B\3]) (hyp[A\3]) (hyp[A\0]) (hyp[A\2]) ("∧ intro"[A,B\1,0]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL Conjectures
+PROOF "(A→((A∧¬B)∨(¬A∧B)))∧((A∧¬B)∨(¬A∧B)→A), (B→A)∧(A→B) ⊢ ¬A∧¬B"
+INFER (A→((A∧¬B)∨(¬A∧B)))∧((A∧¬B)∨(¬A∧B)→A),
+     (B→A)∧(A→B)
+     ⊢ ¬A∧¬B 
+FORMULAE
+0 ¬B,
+1 ¬A,
+2 ⊥,
+3 A,
+4 B,
+5 B→A,
+6 ¬A∧B,
+7 A→B,
+8 A∧¬B,
+9 A∧¬B∨¬A∧B,
+10 A→(A∧¬B)∨(¬A∧B),
+11 (A∧¬B)∨(¬A∧B),
+12 ¬¬B,
+13 ¬A∧¬B,
+14 ¬¬A,
+15 (B→A)∧(A→B),
+16 (A→((A∧¬B)∨(¬A∧B)))∧((A∧¬B)∨(¬A∧B)→A),
+17 A→((A∧¬B)∨(¬A∧B)),
+18 (A∧¬B)∨(¬A∧B)→A 
+IS
+SEQ (cut[B,C\18,13]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\17,18]) (hyp[A\16])) (cut[B,C\17,13]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\17,18]) (hyp[A\16])) (cut[B,C\7,13]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\5,7]) (hyp[A\15])) (cut[B,C\5,13]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\5,7]) (hyp[A\15])) (cut[B,C\1,13]) ("contra (classical)"[A\1]) (cut[B,C\3,2]) (LAYOUT "¬¬ elim" (0) ("¬¬ elim"[B\3]) (hyp[A\14])) (cut[B,C\11,2]) ("→ elim"[A,B\3,11]) (hyp[A\10]) (hyp[A\3]) ("∨ elim"[A,B,C\8,6,2]) (hyp[A\9]) (cut[B,C\0,2]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\3,0]) (hyp[A\8])) (cut[B,C\1,2]) ("→ MT"[A,B\3,4]) (hyp[A\7]) (hyp[A\0]) (cut[B,C\3,2]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\3,0]) (hyp[A\8])) (cut[B,C\2,2]) ("¬ elim"[B\3]) (hyp[A\3]) (hyp[A\1]) (hyp[A\2]) (cut[B,C\4,2]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\1,4]) (hyp[A\6])) (cut[B,C\1,2]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\1,4]) (hyp[A\6])) (cut[B,C\0,2]) ("→ MT"[A,B\4,3]) (hyp[A\5]) (hyp[A\1]) (cut[B,C\2,2]) ("¬ elim"[B\4]) (hyp[A\4]) (hyp[A\0]) (hyp[A\2]) (cut[B,C\0,13]) ("contra (classical)"[A\0]) (cut[B,C\4,2]) (LAYOUT "¬¬ elim" (0) ("¬¬ elim"[B\4]) (hyp[A\12])) (cut[B,C\3,2]) ("→ elim"[A,B\4,3]) (hyp[A\5]) (hyp[A\4]) (cut[B,C\11,2]) ("→ elim"[A,B\3,11]) (hyp[A\10]) (hyp[A\3]) ("∨ elim"[A,B,C\8,6,2]) (hyp[A\9]) (cut[B,C\3,2]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\3,0]) (hyp[A\8])) (cut[B,C\0,2]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\3,0]) (hyp[A\8])) (cut[B,C\1,2]) ("→ MT"[A,B\3,4]) (hyp[A\7]) (hyp[A\0]) (cut[B,C\2,2]) ("¬ elim"[B\3]) (hyp[A\3]) (hyp[A\1]) (hyp[A\2]) (cut[B,C\1,2]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\1,4]) (hyp[A\6])) (cut[B,C\4,2]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\1,4]) (hyp[A\6])) (cut[B,C\3,2]) ("→ elim"[A,B\4,3]) (hyp[A\5]) (hyp[A\4]) (cut[B,C\2,2]) ("¬ elim"[B\3]) (hyp[A\3]) (hyp[A\1]) (hyp[A\2]) ("∧ intro"[A,B\1,0]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL Conjectures
+PROOF "(A→((A→¬B)∧(¬B→A)))∧(((A→¬B)∧(¬B→A))→A), (B→A)∧(A→B) ⊢ ¬A∧¬B"
+INFER (A→((A→¬B)∧(¬B→A)))∧(((A→¬B)∧(¬B→A))→A),
+     (B→A)∧(A→B)
+     ⊢ ¬A∧¬B 
+FORMULAE
+0 ¬B,
+1 ¬A,
+2 ⊥,
+3 B,
+4 A,
+5 A→¬B,
+6 (A→¬B)∧(¬B→A),
+7 ¬B→A,
+8 A→(A→¬B)∧(¬B→A),
+9 B→A,
+10 ¬A∧¬B,
+11 A→B,
+12 (B→A)∧(A→B),
+13 (A→((A→¬B)∧(¬B→A)))∧(((A→¬B)∧(¬B→A))→A),
+14 A→((A→¬B)∧(¬B→A)),
+15 ((A→¬B)∧(¬B→A))→A 
+IS
+SEQ (cut[B,C\11,10]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\9,11]) (hyp[A\12])) (cut[B,C\14,10]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\14,15]) (hyp[A\13])) (cut[B,C\9,10]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\9,11]) (hyp[A\12])) (cut[B,C\1,10]) ("¬ intro"[A\4]) (cut[B,C\6,2]) ("→ elim"[A,B\4,6]) (hyp[A\8]) (hyp[A\4]) (cut[B,C\5,2]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\5,7]) (hyp[A\6])) (cut[B,C\0,2]) ("→ elim"[A,B\4,0]) (hyp[A\5]) (hyp[A\4]) (cut[B,C\3,2]) ("→ elim"[A,B\4,3]) (hyp[A\11]) (hyp[A\4]) (cut[B,C\2,2]) ("¬ elim"[B\3]) (hyp[A\3]) (hyp[A\0]) (hyp[A\2]) (cut[B,C\0,10]) ("¬ intro"[A\3]) (cut[B,C\4,2]) ("→ elim"[A,B\3,4]) (hyp[A\9]) (hyp[A\3]) (cut[B,C\6,2]) ("→ elim"[A,B\4,6]) (hyp[A\8]) (hyp[A\4]) (cut[B,C\5,2]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\5,7]) (hyp[A\6])) (cut[B,C\0,2]) ("→ elim"[A,B\4,0]) (hyp[A\5]) (hyp[A\4]) (cut[B,C\2,2]) ("¬ elim"[B\3]) (hyp[A\3]) (hyp[A\0]) (hyp[A\2]) ("∧ intro"[A,B\1,0]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL Conjectures
+CURRENTPROOF "(A→((A→¬B)∧(¬B→A)))∧(((A→¬B)∧(¬B→A))→A), (B→A)∧(A→B) ⊢ ¬A∧¬B"
+INFER (A→((A→¬B)∧(¬B→A)))∧(((A→¬B)∧(¬B→A))→A),
+     (B→A)∧(A→B)
+     ⊢ ¬A∧¬B 
+FORMULAE
+0 ¬B,
+1 ¬A,
+2 ⊥,
+3 B,
+4 A,
+5 A→¬B,
+6 (A→¬B)∧(¬B→A),
+7 ¬B→A,
+8 A→(A→¬B)∧(¬B→A),
+9 B→A,
+10 ¬A∧¬B,
+11 A→B,
+12 (B→A)∧(A→B),
+13 (A→((A→¬B)∧(¬B→A)))∧(((A→¬B)∧(¬B→A))→A),
+14 A→((A→¬B)∧(¬B→A)),
+15 ((A→¬B)∧(¬B→A))→A 
+IS
+SEQ (cut[B,C\11,10]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\9,11]) (hyp[A\12])) (cut[B,C\14,10]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\14,15]) (hyp[A\13])) (cut[B,C\9,10]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\9,11]) (hyp[A\12])) (cut[B,C\1,10]) ("¬ intro"[A\4]) (cut[B,C\6,2]) ("→ elim"[A,B\4,6]) (hyp[A\8]) (hyp[A\4]) (cut[B,C\5,2]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\5,7]) (hyp[A\6])) (cut[B,C\0,2]) ("→ elim"[A,B\4,0]) (hyp[A\5]) (hyp[A\4]) (cut[B,C\3,2]) ("→ elim"[A,B\4,3]) (hyp[A\11]) (hyp[A\4]) (cut[B,C\2,2]) ("¬ elim"[B\3]) (hyp[A\3]) (hyp[A\0]) (hyp[A\2]) (cut[B,C\0,10]) ("¬ intro"[A\3]) (cut[B,C\4,2]) ("→ elim"[A,B\3,4]) (hyp[A\9]) (hyp[A\3]) (cut[B,C\6,2]) ("→ elim"[A,B\4,6]) (hyp[A\8]) (hyp[A\4]) (cut[B,C\5,2]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\5,7]) (hyp[A\6])) (cut[B,C\0,2]) ("→ elim"[A,B\4,0]) (hyp[A\5]) (hyp[A\4]) (cut[B,C\2,2]) ("¬ elim"[B\3]) (hyp[A\3]) (hyp[A\0]) (hyp[A\2]) ("∧ intro"[A,B\1,0]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL Conjectures
+CURRENTPROOF "(A→((A∧¬B)∨(¬A∧B)))∧((A∧¬B)∨(¬A∧B)→A), (B→A)∧(A→B) ⊢ ¬A∧¬B"
+INFER (A→((A∧¬B)∨(¬A∧B)))∧((A∧¬B)∨(¬A∧B)→A),
+     (B→A)∧(A→B)
+     ⊢ ¬A∧¬B 
+FORMULAE
+0 ¬B,
+1 ¬A,
+2 ⊥,
+3 A,
+4 B,
+5 B→A,
+6 ¬A∧B,
+7 A→B,
+8 A∧¬B,
+9 A∧¬B∨¬A∧B,
+10 A→(A∧¬B)∨(¬A∧B),
+11 (A∧¬B)∨(¬A∧B),
+12 ¬¬B,
+13 ¬A∧¬B,
+14 ¬¬A,
+15 (B→A)∧(A→B),
+16 (A→((A∧¬B)∨(¬A∧B)))∧((A∧¬B)∨(¬A∧B)→A),
+17 A→((A∧¬B)∨(¬A∧B)),
+18 (A∧¬B)∨(¬A∧B)→A 
+IS
+SEQ (cut[B,C\18,13]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\17,18]) (hyp[A\16])) (cut[B,C\17,13]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\17,18]) (hyp[A\16])) (cut[B,C\7,13]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\5,7]) (hyp[A\15])) (cut[B,C\5,13]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\5,7]) (hyp[A\15])) (cut[B,C\1,13]) ("contra (classical)"[A\1]) (cut[B,C\3,2]) (LAYOUT "¬¬ elim" (0) ("¬¬ elim"[B\3]) (hyp[A\14])) (cut[B,C\11,2]) ("→ elim"[A,B\3,11]) (hyp[A\10]) (hyp[A\3]) ("∨ elim"[A,B,C\8,6,2]) (hyp[A\9]) (cut[B,C\0,2]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\3,0]) (hyp[A\8])) (cut[B,C\1,2]) ("→ MT"[A,B\3,4]) (hyp[A\7]) (hyp[A\0]) (cut[B,C\3,2]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\3,0]) (hyp[A\8])) (cut[B,C\2,2]) ("¬ elim"[B\3]) (hyp[A\3]) (hyp[A\1]) (hyp[A\2]) (cut[B,C\4,2]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\1,4]) (hyp[A\6])) (cut[B,C\1,2]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\1,4]) (hyp[A\6])) (cut[B,C\0,2]) ("→ MT"[A,B\4,3]) (hyp[A\5]) (hyp[A\1]) (cut[B,C\2,2]) ("¬ elim"[B\4]) (hyp[A\4]) (hyp[A\0]) (hyp[A\2]) (cut[B,C\0,13]) ("contra (classical)"[A\0]) (cut[B,C\4,2]) (LAYOUT "¬¬ elim" (0) ("¬¬ elim"[B\4]) (hyp[A\12])) (cut[B,C\3,2]) ("→ elim"[A,B\4,3]) (hyp[A\5]) (hyp[A\4]) (cut[B,C\11,2]) ("→ elim"[A,B\3,11]) (hyp[A\10]) (hyp[A\3]) ("∨ elim"[A,B,C\8,6,2]) (hyp[A\9]) (cut[B,C\3,2]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\3,0]) (hyp[A\8])) (cut[B,C\0,2]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\3,0]) (hyp[A\8])) (cut[B,C\1,2]) ("→ MT"[A,B\3,4]) (hyp[A\7]) (hyp[A\0]) (cut[B,C\2,2]) ("¬ elim"[B\3]) (hyp[A\3]) (hyp[A\1]) (hyp[A\2]) (cut[B,C\1,2]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\1,4]) (hyp[A\6])) (cut[B,C\4,2]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\1,4]) (hyp[A\6])) (cut[B,C\3,2]) ("→ elim"[A,B\4,3]) (hyp[A\5]) (hyp[A\4]) (cut[B,C\2,2]) ("¬ elim"[B\3]) (hyp[A\3]) (hyp[A\1]) (hyp[A\2]) ("∧ intro"[A,B\1,0]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL Conjectures
+CURRENTPROOF "(A→¬B)∧(¬B→A), (B→(A∧B))∧((A∧B)→B) ⊢ A∧¬B"
+INFER (A→¬B)∧(¬B→A),
+     (B→(A∧B))∧((A∧B)→B)
+     ⊢ A∧¬B 
+FORMULAE
+0 ¬B,
+1 A,
+2 ⊥,
+3 B,
+4 A→¬B,
+5 A∧B,
+6 B→A∧B,
+7 ¬¬B,
+8 A∧¬B,
+9 ¬A,
+10 ¬B→A,
+11 (A→¬B)∧(¬B→A),
+12 (B→(A∧B))∧((A∧B)→B),
+13 B→(A∧B),
+14 (A∧B)→B 
+IS
+SEQ (cut[B,C\13,8]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\13,14]) (hyp[A\12])) (cut[B,C\10,8]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\4,10]) (hyp[A\11])) (cut[B,C\4,8]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\4,10]) (hyp[A\11])) (cut[B,C\1,8]) ("contra (classical)"[A\1]) (cut[B,C\7,2]) ("→ MT"[A,B\0,1]) (hyp[A\10]) (hyp[A\9]) (cut[B,C\3,2]) (LAYOUT "¬¬ elim" (0) ("¬¬ elim"[B\3]) (hyp[A\7])) (cut[B,C\5,2]) ("→ elim"[A,B\3,5]) (hyp[A\6]) (hyp[A\3]) (cut[B,C\1,2]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\1,3]) (hyp[A\5])) (cut[B,C\2,2]) ("¬ elim"[B\1]) (hyp[A\1]) (hyp[A\9]) (hyp[A\2]) (cut[B,C\0,8]) ("contra (classical)"[A\0]) (cut[B,C\3,2]) (LAYOUT "¬¬ elim" (0) ("¬¬ elim"[B\3]) (hyp[A\7])) (cut[B,C\5,2]) ("→ elim"[A,B\3,5]) (hyp[A\6]) (hyp[A\3]) (cut[B,C\1,2]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\1,3]) (hyp[A\5])) (cut[B,C\0,2]) ("→ elim"[A,B\1,0]) (hyp[A\4]) (hyp[A\1]) (cut[B,C\2,2]) ("¬ elim"[B\3]) (hyp[A\3]) (hyp[A\0]) (hyp[A\2]) ("∧ intro"[A,B\1,0]) (hyp[A\1]) (hyp[A\0])
+END
